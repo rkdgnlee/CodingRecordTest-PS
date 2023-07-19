@@ -1,8 +1,10 @@
 def solution(s):
-    stack = []
-    for c in s:
-        if c=='(':
-            stack.append(c)
-        elif not stack or stack.pop() != '(': #
-                return False
-    return False if stack else True
+    count = 0
+    for ss in s:
+        if ss == "(":
+            count += 1
+        else:
+            count -= 1
+        if count < 0:
+            return False
+    return count == 0
